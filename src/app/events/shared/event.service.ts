@@ -312,6 +312,10 @@ const Events = [
 
 export class EventService {
     getEvents() {
-        return Events;
+      return Events;
+    }
+
+    getEvent(id: number) {
+      return Events.find(event => event.id === id);
     }
 }
