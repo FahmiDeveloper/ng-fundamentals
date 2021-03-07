@@ -8,6 +8,7 @@ import {
     EventRouteActivator,
     EventListResolver
   } from './events/index'
+import { UserModule } from "./user/user.module";
 
 export const appRoutes: Routes = [
     { path: 'events/new', component: CreateNewEventComponent, canDeactivate: ['canDeactivateCreateEvent']},
@@ -15,5 +16,5 @@ export const appRoutes: Routes = [
     { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivator]},
     { path: '404', component: Error404Component},
     { path: '', redirectTo: '/events', pathMatch: 'full'},
-    { path: 'user', loadChildren: './user/user.module#UserModule' }
+    { path:'user', loadChildren: () => UserModule}
 ]
